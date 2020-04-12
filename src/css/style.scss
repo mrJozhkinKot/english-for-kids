@@ -1,0 +1,280 @@
+@import "components/toggle-button.scss";
+
+//variables
+ $bg-color: #C2F9EE;
+ $main-color:#C784B3;
+ $secondary-color: #55C0AA ;
+
+* {
+  margin:0;
+  padding:0;
+}
+
+//utilites
+
+body {
+  background: $bg-color;
+  box-sizing: border-box;
+ 
+
+  .navigation {
+    //position: relative;
+    
+      
+    .hamburger{
+      position: absolute;
+      top: 2.6rem;
+      left: 5rem;
+      z-index: 3;
+      cursor: pointer;
+      width: 2.7rem;
+      height: 2.5rem;
+      //transition: all 1s ease-in-out; 
+      // &:hover .hamburger-open {
+      //   background: $main-color;
+      //   }
+     
+      .hamburger-open{
+        position: relative;
+        flex: none;
+        width: 100%;
+        height: 1.8px;
+        background: #fff;
+        display: flex;
+        align-items: center;
+        
+  
+  
+        &:before, 
+        &:after {
+          content: '';
+          position: absolute;
+          z-index: 3;
+          top: -12px;
+          width: 100%;
+          height: 100%;
+          background: inherit;
+          transition: all 0.3s ease-in-out;
+       } 
+  
+       &:after { 
+        top: 12px;
+        transition: all 0.3s ease-in-out;
+      }          
+       }   
+       
+       .hamburger-close{
+        position: relative;
+        flex: none;
+        width: 100%;
+        height: 0;
+        background: #fff;
+        display: flex;
+        align-items: center;
+
+  
+  
+        &:before, 
+        &:after {
+          content: '';
+          position: absolute;
+          z-index: 2;
+          top: 0;
+          width: 100%;
+          height: 1.8px;
+          background: inherit;
+          transform: rotate(45deg);
+          transition: all 0.5s ease-in-out;
+       } 
+  
+       &:after { 
+        top:0;
+        transform: rotate(-45deg);
+        transition: all 0.5s ease-in-out;
+      }          
+       }  
+
+      
+
+
+      }
+
+      .navigation__list {
+        // display: none;
+        background: $main-color;
+        height: 100vh;
+        width: 400px;
+        position: absolute;
+        top: 0;
+        left: -1000px;
+        transition: all 0.6s ease-in-out;
+        z-index: 2;
+
+    ul{
+ padding: 7rem 5rem;
+ list-style: none;
+
+
+  li {
+    padding: 0.5rem;
+    cursor: pointer;
+
+
+    a {
+      color: #fff;
+      font-size: 1.8rem;
+      text-decoration: none;
+
+    
+
+      i {
+         margin-right: 0.5rem;
+      }
+
+      // .marker {
+      //   width:0.5rem;
+      //   height:0.5rem;
+      //  display: inline-block;
+      //  border: 1px solid transparent;
+      //  border-radius: 50%;
+      //  margin-right: 5px;
+       
+      //  &-green {
+      //   background: $secondary-color;
+      //      }
+      //         }
+      
+    &:hover {
+     color: $bg-color;
+    }
+    }
+  }
+    }
+  }
+  
+  .navigation__list-showed {
+  left: 0;
+  }
+
+
+  }
+
+
+.container {
+margin: 5rem 1rem;
+padding: 1rem;
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+.card {
+  background: $secondary-color;
+  
+  padding: 1rem;
+
+width: 350px;
+ height:260px;
+  margin: 1rem 0.5rem;
+  flex: none;
+  transition: all 0.5s ease-in-out;
+  perspective: 1000px;
+
+ 
+  img {
+    width: 100%;
+    // border: 1px solid transparent;
+    // border-radius: 40%;
+    
+  }
+  
+   
+  p {
+    text-align: center;
+    color: #fff;
+    font-size: 1.2rem;
+  
+    i {
+      float: right;
+
+      &:hover{
+       color: green;
+      
+    }
+  }
+    
+  }
+}
+
+// .card {
+//    background-color: transparent;
+//   // width: 300px;
+//   // height: 300px;
+//   perspective: 1000px;
+// }
+.card-categories {
+  &:hover {
+    box-shadow: 0.4em 0.2em 3px rgba(122,122,122,0.5);
+    cursor: pointer;
+  }
+}
+
+
+.card-instance {
+ background: transparent;
+ padding: 0;
+
+
+ .card-inner {
+  
+  position: relative;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+
+  // &:hover {
+  //   transform: rotateY(180deg);
+  // }
+  }
+  
+  .card-reverse {
+    transform: rotateY(180deg);
+  }
+
+
+.card-front, .card-back {
+  background: $secondary-color;
+  padding: 1rem;
+  position: absolute;
+  backface-visibility: hidden;
+  z-index: 1;
+  &:hover {
+    box-shadow: 0.4em 0.2em 3px rgba(122,122,122,0.5);
+    cursor: pointer;
+  }
+  
+}
+
+// .card-front {
+//    color: black;
+// }
+
+.card-back {
+   transform: rotateY(180deg);
+}
+
+}
+
+ }
+
+
+
+  
+}
+   
+
+
+
+}
+
+
