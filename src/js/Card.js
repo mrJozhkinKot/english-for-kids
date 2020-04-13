@@ -14,8 +14,7 @@ export class Card {
        const audio = new Audio()
        audio.src = this.audioSrc; 
        audio.play()
-
-      }
+           }
          
       template += `<div class = 'card-inner'>
       <div class = 'card-front'>

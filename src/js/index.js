@@ -58,17 +58,22 @@ function renderCards(item) {
     cardsContainer.append(card.generateCard());
      getId();
         })
-    
-            
+                
           }
-
+          
   
  function clickMenuHandler() {
   const hamburger = document.querySelector('.hamburger');
   const menu = document.querySelector('.navigation__list');
-  //const links = document.querySelectorAll('.navigation-links');
+  const overlay = document.querySelector('.overlay');
+  const body = document.querySelector('body');
+
+   //const links = document.querySelectorAll('.navigation-links');
   function toogleMenu() {
-  menu.classList.toggle('navigation__list-showed');
+   menu.classList.toggle('navigation__list-showed');
+   overlay.classList.toggle('overlay-on');
+   body.classList.toggle('overflow');
+ 
   if (hamburger.firstElementChild.classList.contains('hamburger-open')) {
   hamburger.firstElementChild.classList.remove('hamburger-open');
   hamburger.firstElementChild.classList.add('hamburger-close');
@@ -77,10 +82,24 @@ function renderCards(item) {
   hamburger.firstElementChild.classList.add('hamburger-open');
   }
   }
+  
+   overlay.addEventListener('click', () => {
+     //if(e.target)
+     menu.classList.remove('navigation__list-showed');
+     overlay.classList.remove('overlay-on');
+     hamburger.firstElementChild.classList.remove('hamburger-close');
+     hamburger.firstElementChild.classList.add('hamburger-open');
+   }
+   );
   hamburger.addEventListener('click', toogleMenu);
+  //hamburger.addEventListener('click', overlayOn);
   menu.addEventListener('click', (e) => {
+    menu.querySelectorAll ('a'). forEach (el => {
+      el.classList.remove('active');
+      e.target.classList.add('active');
+    })          
   if (e.target.tagName === 'A') {
-    toogleMenu();
+      toogleMenu();
   
       for (let i=0; i<8; i++){
       if (e.target.getAttribute('href') === `#${i}`) {
@@ -94,6 +113,8 @@ function renderCards(item) {
      }
     })
   }
+
+
   
   function clickCategoriesHandler() {
     const cards = document.querySelector('.cards');
@@ -129,6 +150,7 @@ function renderCards(item) {
         e.target.parentElement.parentElement.classList.remove('card-reverse')
                }
     })
+   
   }
 
 
@@ -139,7 +161,7 @@ window.onload = function() {
   clickCategoriesHandler();
   clickTrainHandler();
   mouseOut();
-  soundClick();
+  
 
  
 
