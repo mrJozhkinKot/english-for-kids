@@ -32,32 +32,41 @@ function renderCardsCategories() { const cardsContainer = getCardContainer();
   generateCardsCategories(dataSection).forEach(card => {
     cardsContainer.append(card.generateCardCategories())
   })
-  console.log('hello');
-}
+ }
 
 function generateCards(data, item) {
   const cards = [];
   data[item].forEach(card => {
       cards.push(new Card(card))
+        })
+    
+    return cards;
+}
+
+
+function getId() {
+  const cards = document.querySelectorAll('.card-front');
+  cards.forEach((card, item) => {
+   card.setAttribute('data-id', `#${item}`)
   })
-  console.log(cards);
-  return cards;
 }
 
 
 function renderCards(item) {
   const cardsContainer = getCardContainer();
   generateCards(data, item).forEach(card => {
-    cardsContainer.append(card.generateCard())
-  })
- }
+    cardsContainer.append(card.generateCard());
+     getId();
+        })
+    
+            
+          }
 
+  
  function clickMenuHandler() {
-  // const body = document.querySelector('body');
   const hamburger = document.querySelector('.hamburger');
   const menu = document.querySelector('.navigation__list');
   //const links = document.querySelectorAll('.navigation-links');
-  //console.log(links.getAttribute("href"))
   function toogleMenu() {
   menu.classList.toggle('navigation__list-showed');
   if (hamburger.firstElementChild.classList.contains('hamburger-open')) {
@@ -78,16 +87,7 @@ function renderCards(item) {
        renderCards(i);
       };
     }
-  
-    // links.forEach(item => {
-    //   const i = item.getAttribute("href");
-    //   console.log(i);
-    //         if (e.target.getAttribute("href") === i) {
-    //     renderCards(i);
-    //     }
-    // })
-  
-  
+    
     if (e.target.getAttribute('href') === "#main") {
       renderCardsCategories();
      }
@@ -132,53 +132,18 @@ function renderCards(item) {
   }
 
 
-
-
-
 window.onload = function() {
   if(dataSection) {
-// renderCards(3);
   renderCardsCategories();
   clickMenuHandler();
   clickCategoriesHandler();
   clickTrainHandler();
   mouseOut();
+  soundClick();
+
+ 
 
   }
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// const helloArr = require('./moduleOne.js');
-// class TestClass {
-//   constructor() {
-//     const msg = "Using ES2015+ syntax";
-//     console.log(msg);
-//   }
-// }
-
-// const test = new TestClass();
-
-
-// // Пример массива
-// console.log(helloArr);
-
-/* пример подключения модуля*/
-let mod = moduleOne(2, 3);
-
-console.log(mod);
