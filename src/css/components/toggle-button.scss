@@ -96,14 +96,14 @@
 {
     content: 'TRAIN';
     left: 4px;
-    color: $main-color;
+    color: $secondary-color;
 }
 
 #button-toggle .knobs:after
 {
     content: 'PLAY';
     right: 20px;
-    color: $secondary-color;
+    color: $main-color;
 }
 
 #button-toggle .knobs:before, #button-toggle .knobs:after
@@ -136,13 +136,13 @@
 #button-toggle .knobs span:before
 {
     left: -80px;
-    background-color: $main-color;
+    background-color: $secondary-color;
 }
 
 #button-toggle .knobs span:after
 {
     right: -70px;
-    background-color: $secondary-color;
+    background-color: $main-color;
 }
 
 #button-toggle .checkbox:checked + .knobs span:before

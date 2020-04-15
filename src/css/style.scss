@@ -11,17 +11,13 @@
   padding:0;
 }
 
-//utilites
-
 body {
   background: $bg-color;
   box-sizing: border-box;
   font-family: 'Montserrat', sans-serif;
 
   .navigation {
-    //position: relative;
-    
-      
+         
     .hamburger{
       position: fixed;
       top: 2.6rem;
@@ -30,11 +26,7 @@ body {
       cursor: pointer;
       width: 2.7rem;
       height: 2.5rem;
-      //transition: all 1s ease-in-out; 
-      // &:hover .hamburger-open {
-      //   background: $main-color;
-      //   }
-     
+          
       .hamburger-open{
         position: relative;
         flex: none;
@@ -101,7 +93,7 @@ body {
       }
 
       .navigation__list {
-        // display: none;
+    
         background: $main-color;
         height: 100vh;
         width: 500px;
@@ -127,8 +119,7 @@ body {
       font-weight: 500;
       text-decoration: none;
 
-    
-
+     
       i {
          margin-right: 0.5rem;
       }
@@ -137,15 +128,31 @@ body {
      color: $bg-color;
     }
     }
+
   }
-  
-  .active {
-    color: $secondary-color;
-  }
+   
+
 
 
     }
+    .active {
+      color: $secondary-color;
+    }
+
   }
+
+  .navigation__list-play {
+    background: $secondary-color;
+
+       .active {
+        color: $main-color;
+      }
+    
+  }
+
+
+
+
   
   .navigation__list-showed {
   left: 0;
@@ -177,7 +184,7 @@ body {
 
 
 .container {
-margin: 5rem 1rem;
+margin: 5rem 1rem 1rem 1rem;
 padding: 1rem;
 
 .cards {
@@ -186,7 +193,7 @@ padding: 1rem;
   justify-content: center;
 
 .card {
-  background: $secondary-color;
+  // background: $secondary-color;
   
   padding: 1rem;
 
@@ -223,13 +230,17 @@ width: 350px;
   }
 }
 
-// .card {
-//    background-color: transparent;
-//   // width: 300px;
-//   // height: 300px;
-//   perspective: 1000px;
-// }
+
 .card-categories {
+  background: $secondary-color;
+  &:hover {
+    box-shadow: 0.4em 0.2em 3px rgba(122,122,122,0.5);
+    cursor: pointer;
+  }
+}
+
+.card-categories-play {
+  background: $main-color;
   &:hover {
     box-shadow: 0.4em 0.2em 3px rgba(122,122,122,0.5);
     cursor: pointer;
@@ -240,6 +251,9 @@ width: 350px;
 .card-instance {
  background: transparent;
  padding: 0;
+ &:hover {
+    cursor: pointer;
+}
 
 
  .card-inner {
@@ -247,10 +261,6 @@ width: 350px;
   position: relative;
   transition: transform 0.6s;
   transform-style: preserve-3d;
-
-  // &:hover {
-  //   transform: rotateY(180deg);
-  // }
   }
   
   .card-reverse {
@@ -270,26 +280,85 @@ width: 350px;
   }
   
 }
-
-// .card-front {
-//    color: black;
-// }
-
 .card-back {
    transform: rotateY(180deg);
 }
 
+ 
+
 }
 
- }
 
-
-
+.card-play {
+   padding: 0;
   
+  .card-inner {
+   
+   position: relative;
+   transition: transform 0.6s;
+   transform-style: preserve-3d;
+    }
+   
+   .card-reverse {
+     transform: rotateY(180deg);
+   }
+ 
+   .card-back {
+     display: none;
+   }
+ .card-front {
+   background: transparent;
+   padding: 0;
+   position: absolute;
+   backface-visibility: hidden;
+   z-index: 2;
+   &:hover {
+     box-shadow:  none;
+     cursor: pointer;
+   }
+   
+ }
+ 
+ 
+ .card-back {
+    transform: none;
+ }
+ 
+ p {
+   display: none;
+ }
+ 
+  }
+ }
+ 
 }
    
 
+.button-play {
+    width: 100px;
+  height: 100px;
+  background: $secondary-color;
+ display: none;
+  margin: 0 auto;
+  margin-bottom: 100px;
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 700;
+  cursor: pointer;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  transition: all 0.3s ease-in-out;
 
+ &:hover {
+  background: $main-color;
+  box-shadow: 0.1em 0.1em 1px rgba(122,122,122,0.5);
+
+ }
+
+}
+.button-play-on {
+  display: block;
+}
 
 }
 

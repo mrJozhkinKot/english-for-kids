@@ -10,13 +10,7 @@ export class Card {
       let template = '';
       const card = document.createElement('div');
       card.className = 'card card-instance';
-       card.onclick = () => {
-       const audio = new Audio()
-       audio.src = this.audioSrc; 
-       audio.play()
-           }
-         
-      template += `<div class = 'card-inner'>
+       template += `<div class = 'card-inner'>
       <div class = 'card-front'>
       <img src=${this.image} alt=${this.word}>
           <p>${this.word.toUpperCase()}<i class="icon-reverse fas fa-sync-alt"></i></p>
@@ -25,12 +19,13 @@ export class Card {
          <img src=${this.image} alt=${this.word}>
           <p>${this.translation.toUpperCase()}</p>
       </div>
-      <audio> <sourse src="${this.audioSrc}" type="audio/mp3"</audio>
-    </div>`;
+        </div>
+        <audio> <sourse src="${this.audioSrc}" type="audio/mp3"</audio>`;
+      
     
     card.innerHTML = template;
     return card;
 }
-
 }
+
 

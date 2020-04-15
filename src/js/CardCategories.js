@@ -10,6 +10,9 @@ export class CardCategories {
       let template = '';
       const cardCategories = document.createElement('div');
       cardCategories.className = 'card card-categories';
+      if(localStorage.getItem('mode') == 'play') {
+      cardCategories.className = 'card card-categories card-categories-play';
+      }
       cardCategories.setAttribute('data-id', this.id);
       
       template += `<img src=${this.image} alt="card">
