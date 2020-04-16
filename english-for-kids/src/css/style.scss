@@ -1,0 +1,365 @@
+@import "components/toggle-button.scss";
+
+//variables
+ $bg-color: #C2F9EE;
+ $main-color:#C784B3;
+ $secondary-color: #55C0AA ;
+ $active-color: rgb(201, 56, 157);
+
+* {
+  margin:0;
+  padding:0;
+}
+
+body {
+  background: $bg-color;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+
+  .navigation {
+         
+    .hamburger{
+      position: fixed;
+      top: 2.6rem;
+      left: 5rem;
+      z-index: 5;
+      cursor: pointer;
+      width: 2.7rem;
+      height: 2.5rem;
+          
+      .hamburger-open{
+        position: relative;
+        flex: none;
+        width: 100%;
+        height: 1.8px;
+        background: #fff;
+        display: flex;
+        align-items: center;
+        
+  
+  
+        &:before, 
+        &:after {
+          content: '';
+          position: absolute;
+          z-index: 5;
+          top: -12px;
+          width: 100%;
+          height: 100%;
+          background: inherit;
+          transition: all 0.3s ease-in-out;
+       } 
+  
+       &:after { 
+        top: 12px;
+        transition: all 0.3s ease-in-out;
+      }          
+       }   
+       
+       .hamburger-close{
+        position: relative;
+        flex: none;
+        width: 100%;
+        height: 0;
+        background: #fff;
+        display: flex;
+        align-items: center;
+
+  
+  
+        &:before, 
+        &:after {
+          content: '';
+          position: absolute;
+          z-index: 2;
+          top: 0;
+          width: 100%;
+          height: 1.8px;
+          background: inherit;
+          transform: rotate(45deg);
+          transition: all 0.5s ease-in-out;
+       } 
+  
+       &:after { 
+        top:0;
+        transform: rotate(-45deg);
+        transition: all 0.5s ease-in-out;
+      }          
+       }  
+
+      
+
+
+      }
+
+      .navigation__list {
+    
+        background: $main-color;
+        height: 100vh;
+        width: 500px;
+        position: fixed;
+        top: 0;
+        left: -1000px;
+        transition: all 0.6s ease-in-out;
+        z-index: 4;
+
+    ul{
+ padding: 7rem 5rem;
+ list-style: none;
+
+
+  li {
+    padding: 0.5rem;
+    cursor: pointer;
+
+
+    a {
+      color: #fff;
+      font-size: 1.8rem;
+      font-weight: 500;
+      text-decoration: none;
+
+     
+      i {
+         margin-right: 0.5rem;
+      }
+      
+    &:hover {
+     color: $bg-color;
+    }
+    }
+
+  }
+   
+
+
+
+    }
+    .active {
+      color: $secondary-color;
+    }
+
+  }
+
+  .navigation__list-play {
+    background: $secondary-color;
+
+       .active {
+        color: $main-color;
+      }
+    
+  }
+
+
+
+
+  
+  .navigation__list-showed {
+  left: 0;
+  overflow: hidden;
+  height: 100vh;
+  }
+
+  .overlay {
+    display: none;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: #0007;
+    z-index: 3;
+   
+  
+
+  }
+
+  .overlay-on {
+    display: flex;
+    transition: all 1s ease-in-out;
+  }
+
+
+  }
+
+
+.container {
+margin: 5rem 1rem 1rem 1rem;
+padding: 1rem;
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+.card {
+  // background: $secondary-color;
+  
+  padding: 1rem;
+
+width: 350px;
+ height:260px;
+  margin: 1rem 0.5rem;
+  flex: none;
+  transition: all 0.5s ease-in-out;
+  perspective: 1000px;
+
+ 
+  img {
+    width: 100%;
+    // border: 1px solid transparent;
+    // border-radius: 40%;
+    
+  }
+  
+   
+  p {
+    text-align: center;
+    color: #fff;
+    font-size: 1.2rem;
+  
+    i {
+      float: right;
+
+      &:hover{
+       color: green;
+      
+    }
+  }
+    
+  }
+}
+
+
+.card-categories {
+  background: $secondary-color;
+  &:hover {
+    box-shadow: 0.4em 0.2em 3px rgba(122,122,122,0.5);
+    cursor: pointer;
+  }
+}
+
+.card-categories-play {
+  background: $main-color;
+  &:hover {
+    box-shadow: 0.4em 0.2em 3px rgba(122,122,122,0.5);
+    cursor: pointer;
+  }
+}
+
+
+.card-instance {
+ background: transparent;
+ padding: 0;
+ &:hover {
+    cursor: pointer;
+}
+
+
+ .card-inner {
+  
+  position: relative;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  }
+  
+  .card-reverse {
+    transform: rotateY(180deg);
+  }
+
+
+.card-front, .card-back {
+  background: $secondary-color;
+  padding: 1rem;
+  position: absolute;
+  backface-visibility: hidden;
+  z-index: 1;
+  &:hover {
+    box-shadow: 0.4em 0.2em 3px rgba(122,122,122,0.5);
+    cursor: pointer;
+  }
+  
+}
+.card-back {
+   transform: rotateY(180deg);
+}
+
+ 
+
+}
+
+
+.card-play {
+   padding: 0;
+  
+  .card-inner {
+   
+   position: relative;
+   transition: transform 0.6s;
+   transform-style: preserve-3d;
+    }
+   
+   .card-reverse {
+     transform: rotateY(180deg);
+   }
+ 
+   .card-back {
+     display: none;
+   }
+ .card-front {
+   background: transparent;
+   padding: 0;
+   position: absolute;
+   backface-visibility: hidden;
+   z-index: 2;
+   &:hover {
+     box-shadow:  none;
+     cursor: pointer;
+   }
+   
+ }
+ 
+ 
+ .card-back {
+    transform: none;
+ }
+ 
+ p {
+   display: none;
+ }
+ 
+  }
+ }
+ 
+}
+   
+
+.button-play {
+    width: 100px;
+  height: 100px;
+  background: $secondary-color;
+ display: none;
+  margin: 0 auto;
+  margin-bottom: 100px;
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 700;
+  cursor: pointer;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  transition: all 0.3s ease-in-out;
+
+ &:hover {
+  background: $main-color;
+  box-shadow: 0.1em 0.1em 1px rgba(122,122,122,0.5);
+
+ }
+
+}
+.button-play-on {
+  display: block;
+}
+
+}
+
+
